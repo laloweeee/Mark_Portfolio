@@ -64,15 +64,15 @@
 }
 
 @media (max-width: 900px) {
-  .hero-inner      { padding-top: calc(var(--nav-height) + 2rem); padding-bottom: 2.5rem; }
-  .hero-content    { max-width: 100%; padding: 0 0.5rem; }
-  .hero-name       { white-space: normal; font-size: clamp(2.1rem, 8vw, 2.8rem); line-height: 1.1; }
-  .hero-role       { font-size: 1.05rem; margin-bottom: 1.2rem; flex-direction: column; align-items: flex-start; }
-  .hero-actions    { flex-direction: column; gap: 0.7rem; align-items: stretch; }
-  .hero-quote      { font-size: 1rem; padding: 1rem 0.7rem; margin-bottom: 1.2rem; }
+  .hero-inner      { padding-top: calc(var(--nav-height) + 1.2rem); padding-bottom: 1.2rem; }
+  .hero-content    { max-width: 100%; padding: 0 0.2rem; }
+  .hero-name       { white-space: normal; font-size: 7vw; max-width: 95vw; line-height: 1.08; }
+  .hero-role       { font-size: 4.2vw; max-width: 90vw; margin-bottom: 1rem; flex-direction: column; align-items: flex-start; }
+  .hero-actions    { flex-direction: column; gap: 0.5rem; align-items: stretch; }
+  .btn.hero-cta-primary, .btn.btn-secondary { width: 100%; font-size: 4.2vw; max-width: 90vw; padding: 0.7em 0; }
+  .hero-quote      { font-size: 1rem; padding: 0.7rem 0.5rem; margin-bottom: 1rem; }
   .hero-quote blockquote { font-size: 1rem; }
   .hero-quote cite { font-size: 0.8rem; }
-  .btn.hero-cta-primary, .btn.btn-secondary { width: 100%; font-size: 1.05rem; padding: 0.9rem 0; }
   .hero-social     { display: none; }
   .hero-scroll     { display: none; }
   .about-snap-grid { grid-template-columns: 1fr; }
@@ -453,12 +453,12 @@ p {
 }
 
 @media (max-width: 540px) {
-  .hero-inner      { padding-top: calc(var(--nav-height) + 1.2rem); padding-bottom: 1.2rem; }
-  .hero-content    { padding: 0 0.2rem; }
-  .hero-name       { font-size: 2rem; }
-  .hero-role       { font-size: 0.98rem; }
-  .hero-actions    { gap: 0.5rem; }
-  .btn.hero-cta-primary, .btn.btn-secondary { font-size: 0.98rem; padding: 0.8rem 0; }
+  .hero-inner      { padding-top: calc(var(--nav-height) + 0.7rem); padding-bottom: 0.7rem; }
+  .hero-content    { padding: 0 0.1rem; }
+  .hero-name       { font-size: 8vw; max-width: 98vw; }
+  .hero-role       { font-size: 4.5vw; max-width: 95vw; }
+  .btn.hero-cta-primary, .btn.btn-secondary { font-size: 4.5vw; max-width: 95vw; padding: 0.7em 0; }
+  .hero-actions    { gap: 0.4rem; }
   .hero-quote { display: none; }
 }
 
