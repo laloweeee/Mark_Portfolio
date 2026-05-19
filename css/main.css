@@ -63,20 +63,8 @@
   }
 }
 
-@media (max-width: 900px) {
-  .hero-inner      { padding-top: calc(var(--nav-height) + 1.2rem); padding-bottom: 1.2rem; }
-  .hero-content    { max-width: 100%; padding: 0 0.2rem; }
-  .hero-name       { white-space: normal; font-size: 7vw; max-width: 95vw; line-height: 1.08; }
-  .hero-role       { font-size: 4.2vw; max-width: 90vw; margin-bottom: 1rem; flex-direction: column; align-items: flex-start; }
-  .hero-actions    { flex-direction: column; gap: 0.5rem; align-items: stretch; }
-  .btn.hero-cta-primary, .btn.btn-secondary { width: 100%; font-size: 4.2vw; max-width: 90vw; padding: 0.7em 0; }
-  .hero-quote      { font-size: 1rem; padding: 0.7rem 0.5rem; margin-bottom: 1rem; }
-  .hero-quote blockquote { font-size: 1rem; }
-  .hero-quote cite { font-size: 0.8rem; }
-  .hero-social     { display: none; }
-  .hero-scroll     { display: none; }
-  .about-snap-grid { grid-template-columns: 1fr; }
-}
+/* Desktop layout forced on all screen sizes: Remove mobile overrides */
+
   .footer-top {
     gap: var(--space-sm);
   }
@@ -452,15 +440,7 @@ p {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 540px) {
-  .hero-inner      { padding-top: calc(var(--nav-height) + 0.7rem); padding-bottom: 0.7rem; }
-  .hero-content    { padding: 0 0.1rem; }
-  .hero-name       { font-size: 8vw; max-width: 98vw; }
-  .hero-role       { font-size: 4.5vw; max-width: 95vw; }
-  .btn.hero-cta-primary, .btn.btn-secondary { font-size: 4.5vw; max-width: 95vw; padding: 0.7em 0; }
-  .hero-actions    { gap: 0.4rem; }
-  .hero-quote { display: none; }
-}
+
 
 /* --- Dividers --- */
 .divider {
