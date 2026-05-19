@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Performance marketing and CRM automation services by Mark Osabel — Meta Ads, CRM Automation, Funnel Architecture, Ad Creative, Analytics, and Campaign Strategy." />
+  <title>Services — Mark Osabel</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    .services-full-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 960px) { .services-full-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .services-full-grid { grid-template-columns: 1fr; } }
+
+    .service-card-lg {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: var(--transition-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card-lg::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--warm-brown), var(--accent-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease);
+    }
+
+    .service-card-lg:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-accent);
+    }
+
+    .service-card-lg:hover::before { transform: scaleX(1); }
+
+    .service-card-lg .service-icon {
+      width: 56px; height: 56px;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: var(--transition);
+    }
+
+    .service-card-lg:hover .service-icon {
+      background: var(--accent);
+      transform: rotate(-5deg) scale(1.05);
+    }
+
+    .service-card-lg h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      color: var(--cream);
+    }
+
+    .service-card-lg p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-deliverables {
+      list-style: none;
+      margin: 0;
+    }
+
+    .service-deliverables li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      padding: 0.3rem 0;
+    }
+
+    .service-deliverables li::before {
+      content: '→';
+      color: var(--accent-light);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Featured service (full-width) */
+    .service-card-featured {
+      grid-column: span 3;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .service-card-featured { grid-column: span 2; }
+    }
+
+    @media (max-width: 700px) {
+      .service-card-featured {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- Navbar: floating pill ---- */
+    #navbar {
+      position: fixed !important;
+      top: 1.1rem !important;
+      left: 50% !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      z-index: 9999 !important;
+      background: rgba(8, 8, 8, 0.48) !important;
+      backdrop-filter: blur(20px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.13) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45) !important;
+      overflow: hidden !important;
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div id="cursor-spotlight" aria-hidden="true"></div>
+  <div id="cursor-dot"       aria-hidden="true"></div>
+  <div id="cursor-ring"      aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Contact with Me</a>
+      </div>
+      <button class="nav-hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile-overlay">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Me</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="contact.html" style="color:var(--accent-light);">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="container">
+      <span class="page-hero-label">What I Do</span>
+      <h1 class="page-hero-title reveal">My Services</h1>
+      <p class="section-subtitle reveal" style="margin:0 0 2rem;text-align:left;">
+        End-to-end digital marketing systems built around your business goals — not cookie-cutter templates.
+      </p>
+    </div>
+  </section>
+
+  <!-- All Services -->
+  <section class="section section-gradient" id="svc-cards">
+    <div class="container">
+      <div class="services-full-grid stagger-children">
+
+        <!-- Meta & Paid Advertising -->
+        <div class="service-card-lg" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Meta &amp; Paid Advertising</h3>
+          <p>High-ROI paid campaigns across Meta, Google, TikTok, and LinkedIn. Every dollar tracked, every conversion optimized. I build the campaign architecture, write the creative, and manage the budget so you can focus on the business.</p>
+          <ul class="service-deliverables">
+            <li>Campaign Setup and Management</li>
+            <li>Audience Targeting and Retargeting</li>
+            <li>Ad Creative and Copywriting</li>
+            <li>Budget Optimization and Reporting</li>
+          </ul>
+        </div>
+
+        <!-- CRM Automation -->
+        <div class="service-card-lg" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-gears"></i></div>
+          <h3>CRM Automation &amp; Lead Nurturing</h3>
+          <p>Targeted email campaigns and smart automation sequences that turn subscribers into repeat buyers and leads into long-term clients. Built on GoHighLevel, HubSpot, ActiveCampaign, and more.</p>
+          <ul class="service-deliverables">
+            <li>GoHighLevel, HubSpot, and ActiveCampaign Setup</li>
+            <li>Email Sequence Design and Segmentation</li>
+            <li>Lead Scoring, Tagging, and Nurture Flows</li>
+            <li>ManyChat and Zapier Integration</li>
+          </ul>
+        </div>
+
+        <!-- Funnel Architecture -->
+        <div class="service-card-lg" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-diagram-project"></i></div>
+          <h3>Funnel Architecture &amp; CRO</h3>
+          <p>Full-funnel design from the first ad click to the closed deal. I map the entire customer journey, build the landing pages, and integrate the booking and intake systems that make conversions happen.</p>
+          <ul class="service-deliverables">
+            <li>Funnel Strategy and Architecture Design</li>
+            <li>Landing Page Build and Optimization</li>
+            <li>Booking and Intake System Integration</li>
+            <li>Quiz Funnel Development</li>
+          </ul>
+        </div>
+
+        <!-- Ad Creative Production -->
+        <div class="service-card-lg" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-film"></i></div>
+          <h3>Ad Creative Production</h3>
+          <p>Scroll-stopping video and static creatives built for paid performance. I handle direction, editing, and copy so your ads do not just look good — they convert.</p>
+          <ul class="service-deliverables">
+            <li>Video Ad Direction and Editing</li>
+            <li>Static Ad Creative Production</li>
+            <li>Ad Copy Variants and Testing Frameworks</li>
+            <li>Platform-Specific Creative Formatting</li>
+          </ul>
+        </div>
+
+        <!-- Analytics & Reporting -->
+        <div class="service-card-lg" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>Analytics &amp; Reporting</h3>
+          <p>Turn data into direction. I set up tracking, build custom dashboards, and deliver clear monthly reports that show exactly what your campaigns are producing and where to push next.</p>
+          <ul class="service-deliverables">
+            <li>Google Analytics Setup and Audit</li>
+            <li>Conversion Tracking Configuration</li>
+            <li>Custom Performance Dashboard Creation</li>
+            <li>Monthly Insight Reports</li>
+          </ul>
+        </div>
+
+        <!-- Campaign Strategy -->
+        <div class="service-card-lg" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-chess"></i></div>
+          <h3>Campaign Strategy &amp; Planning</h3>
+          <p>Before any campaign goes live, I map out the full system. Audience research, messaging, channel selection, budget allocation, and performance benchmarks. Strategy is not an add-on. It is where every engagement starts.</p>
+          <ul class="service-deliverables">
+            <li>Audience and Market Research</li>
+            <li>Messaging and Positioning Frameworks</li>
+            <li>Channel Strategy and Budget Allocation</li>
+            <li>KPI Frameworks and Goal Setting</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How I Work -->
+  <section class="section section-light section-gradient" id="svc-process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">How I Work</span>
+        <h2 class="section-title reveal">The Process</h2>
+        <p class="section-subtitle reveal">A clear, collaborative process designed to deliver results without the confusion.</p>
+      </div>
+
+        <div class="process-steps stagger-children">
+        <div class="process-step">
+          <div class="process-step-number">01</div>
+          <div class="process-step-title">Discovery Call</div>
+          <p class="process-step-desc">We start with a free 30-minute call to understand your business, goals, and the gaps in your current system. No pitch, just a real conversation about where you are and where you want to go.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-number">02</div>
+          <div class="process-step-title">Strategy &amp; System Design</div>
+          <p class="process-step-desc">I map out the full campaign and automation architecture before anything goes live. You see the plan, the channels, the KPIs, and the timeline before we spend a single dollar.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-number">03</div>
+          <div class="process-step-title">Execution</div>
+          <p class="process-step-desc">Implementation begins with regular check-ins and full transparency throughout. You always know what is being built and why.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-number">04</div>
+          <div class="process-step-title">Review &amp; Optimize</div>
+          <p class="process-step-desc">Monthly performance reviews, detailed reporting, and ongoing optimization to keep results improving. Nothing is set and forget.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Me -->
+  <section class="section section-gradient" id="svc-difference">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Why Work With Me</span>
+        <h2 class="section-title reveal">The Difference</h2>
+      </div>
+
+      <div class="grid-3 stagger-children" style="gap:1.5rem;">
+        <div class="card" data-tilt="5">
+          <div style="font-size:2rem;margin-bottom:1rem;">🎯</div>
+          <h4 style="margin-bottom:0.5rem;">Specialist, Not Generalist</h4>
+          <p style="font-size:0.875rem;">I focus on paid media and CRM automation. That focus means you get someone who runs this system every single day, not someone who dabbles in ten things at once.</p>
+        </div>
+        <div class="card" data-tilt="5">
+          <div style="font-size:2rem;margin-bottom:1rem;">🔗</div>
+          <h4 style="margin-bottom:0.5rem;">Full-System Thinking</h4>
+          <p style="font-size:0.875rem;">I look at the entire customer journey from the first ad impression to the closed deal. Your campaigns and your automation work together, not in isolation.</p>
+        </div>
+        <div class="card" data-tilt="5">
+          <div style="font-size:2rem;margin-bottom:1rem;">📈</div>
+          <h4 style="margin-bottom:0.5rem;">Proven Results</h4>
+          <p style="font-size:0.875rem;">Not just activity — outcomes. Every engagement is measured against real business numbers: cost per lead, ROAS, conversion rate, revenue. Not vanity metrics.</p>
+        </div>
+        <div class="card" data-tilt="5">
+          <div style="font-size:2rem;margin-bottom:1rem;">🌍</div>
+          <h4 style="margin-bottom:0.5rem;">Industry Experience</h4>
+          <p style="font-size:0.875rem;">I have worked across healthcare, ecommerce, SaaS, fitness, professional services, financial services, travel, and home improvement. I know how different buyers behave.</p>
+        </div>
+        <div class="card" data-tilt="5">
+          <div style="font-size:2rem;margin-bottom:1rem;">⚡</div>
+          <h4 style="margin-bottom:0.5rem;">Fast Turnaround</h4>
+          <p style="font-size:0.875rem;">Projects move. Communication is prompt. Deliveries are on schedule. You will not be waiting weeks for a status update.</p>
+        </div>
+        <div class="card" data-tilt="5">
+          <div style="font-size:2rem;margin-bottom:1rem;">🤝</div>
+          <h4 style="margin-bottom:0.5rem;">True Partnership</h4>
+          <p style="font-size:0.875rem;">I treat your business like my own. Your success is my success. We are fully aligned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="cta-band reveal-scale">
+        <span class="section-label" style="margin-bottom:1rem;">Interested to Get My Services</span>
+        <h2>Ready to Start <span class="text-accent">Growing?</span></h2>
+        <p>Let's discuss which services would make the biggest impact for your business.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">Get Started <i class="fas fa-arrow-up-right-from-square" style="font-size:0.8em;"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="font-size:1.3rem;"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+          <p>Performance marketing and CRM automation specialist helping businesses build complete revenue systems.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Pages</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Me</a></li><li><a href="services.html">Services</a></li><li><a href="case-studies.html">Case Studies</a></li></ul></div>
+        <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Meta &amp; Paid Ads</a></li><li><a href="services.html">CRM Automation</a></li><li><a href="services.html">Funnel Architecture</a></li><li><a href="services.html">Ad Creative</a></li><li><a href="services.html">Analytics</a></li><li><a href="services.html">Campaign Strategy</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:markosabel9@gmail.com">markosabel9@gmail.com</a></li><li><a href="tel:+639690448126">+63 969 044 8126</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Mark Osabel. All rights reserved.</span>
+        <div style="display:flex;gap:1.5rem;"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--accent);color:var(--cream);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s,transform 0.3s;z-index:500;box-shadow:var(--shadow-accent);"><i class="fas fa-arrow-up"></i></button>
+  <style>#back-to-top.visible{opacity:1;visibility:visible;}#back-to-top:hover{transform:translateY(-3px);background:var(--accent-light);}</style>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

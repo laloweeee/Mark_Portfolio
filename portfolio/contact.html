@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get in touch with Mark Osabel — performance marketing and CRM automation specialist. Start a project or book a free discovery call." />
+  <title>Contact — Mark Osabel</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Form card */
+    .contact-form-card {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+    }
+
+    .contact-form-card h3 {
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      background: var(--bg-surface-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 1rem;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      box-sizing: border-box;
+      cursor: text;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: var(--accent-light);
+      box-shadow: 0 0 0 3px rgba(216, 207, 188, 0.18);
+    }
+
+    .form-textarea {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23D8CFBC' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-select option { background: var(--bg-surface-3); color: var(--cream); }
+
+    /* Submit feedback */
+    .form-submit-wrap { position: relative; }
+
+    .form-success {
+      display: none;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 1.2rem;
+      background: rgba(100, 180, 100, 0.08);
+      border: 1px solid rgba(100, 180, 100, 0.3);
+      border-radius: var(--radius-sm);
+      color: #8bcf8b;
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+    }
+
+    .form-success.visible { display: flex; }
+
+    /* Availability tag */
+    .availability-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--accent-light);
+      background: rgba(86, 84, 73, 0.12);
+      border: 1px solid rgba(86, 84, 73, 0.30);
+      border-radius: 99px;
+      padding: 0.35rem 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .availability-dot {
+      width: 7px; height: 7px;
+      background: #5cb85c;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* Social links in contact */
+    .contact-social-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      background: var(--bg-surface-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.9rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-social-btn:hover {
+      border-color: var(--border-accent);
+      color: var(--accent-light);
+    }
+
+    /* ---- Navbar: floating pill ---- */
+    #navbar {
+      position: fixed !important;
+      top: 1.1rem !important;
+      left: 50% !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      z-index: 9999 !important;
+      background: rgba(8, 8, 8, 0.48) !important;
+      backdrop-filter: blur(20px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.13) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45) !important;
+      overflow: hidden !important;
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div id="cursor-spotlight" aria-hidden="true"></div>
+  <div id="cursor-dot"       aria-hidden="true"></div>
+  <div id="cursor-ring"      aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary active">Contact with Me <i class="fas fa-arrow-up-right-from-square" style="font-size:0.8em;"></i></a>
+      </div>
+      <button class="nav-hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile-overlay">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Me</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="contact.html" style="color:var(--accent-light);">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="container">
+      <span class="page-hero-label">Say Hello</span>
+      <h1 class="page-hero-title reveal">Get in Touch</h1>
+      <p class="section-subtitle reveal" style="margin:0 0 2rem;text-align:left;">
+        Whether you have a project in mind, a question to ask, or just want to connect — I'd love to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section section-gradient" id="contact-body" style="padding-top:2rem;">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Left: Info Card -->
+        <div class="reveal-left">
+          <div class="availability-tag">
+            <span class="availability-dot"></span>
+            Available for new projects
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div class="contact-info-label">Email</div>
+                <a href="mailto:markosabel9@gmail.com" class="contact-info-value" style="text-decoration:none;color:var(--cream);">markosabel9@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <div class="contact-info-label">Phone</div>
+                <a href="tel:+639690448126" class="contact-info-value" style="text-decoration:none;color:var(--cream);">+63 969 044 8126</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <div class="contact-info-label">Location</div>
+                <span class="contact-info-value">Cebu City, Philippines — Remote Worldwide</span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <div class="contact-info-label">Response Time</div>
+                <span class="contact-info-value">Within 24 hours</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem;">
+            <p style="font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:0.75rem;">Connect Socially</p>
+            <div class="contact-social-row">
+              <a href="https://www.linkedin.com/in/markjosabel/" class="contact-social-btn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              <a href="#" class="contact-social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+              <a href="#" class="contact-social-btn"><i class="fab fa-x-twitter"></i> X / Twitter</a>
+              <a href="#" class="contact-social-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+            </div>
+          </div>
+
+          <!-- Quote -->
+          <blockquote style="margin-top:2rem;padding:1.5rem;background:var(--bg-surface-2);border:1px solid var(--border);border-left:3px solid var(--accent-light);border-radius:var(--radius-md);font-family:var(--font-heading);font-size:1rem;color:var(--text-secondary);line-height:1.65;font-style:italic;">
+            "Great results start with great conversations. Tell me about your business and let's figure out the fastest path to growth."
+            <footer style="margin-top:0.75rem;font-size:0.8rem;color:var(--accent-light);font-style:normal;font-family:var(--font-body);font-weight:600;">— Mark Osabel</footer>
+          </blockquote>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="reveal-right">
+          <div class="contact-form-card">
+            <h3>Send Me a Message</h3>
+            <form id="contact-form" novalidate>
+              <!-- Web3Forms -->
+              <input type="hidden" name="access_key" value="72acd9ba-3ba7-49f4-ae78-fd9b803294c7" />
+              <input type="hidden" name="subject" value="New Contact Form Submission — Mark Osabel Portfolio" />
+              <input type="hidden" name="from_name" value="Mark Osabel Portfolio" />
+              <!-- Honeypot spam protection -->
+              <input type="checkbox" name="botcheck" style="display:none;" />
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="cf-name">Full Name *</label>
+                  <input class="form-input" id="cf-name" name="name" type="text" placeholder="Your full name" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cf-email">Email Address *</label>
+                  <input class="form-input" id="cf-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cf-service">I'm Interested In</label>
+                <select class="form-select" id="cf-service" name="service">
+                  <option value="" disabled selected>Select a service (optional)</option>
+                  <option value="meta-ads">Meta and Paid Advertising</option>
+                  <option value="crm">CRM Automation</option>
+                  <option value="funnel">Funnel Architecture</option>
+                  <option value="creative">Ad Creative Production</option>
+                  <option value="analytics">Analytics and Reporting</option>
+                  <option value="strategy">Campaign Strategy</option>
+                  <option value="other">Not Sure Yet</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cf-budget">Approximate Budget</label>
+                <select class="form-select" id="cf-budget" name="budget">
+                  <option value="" disabled selected>Select a range (optional)</option>
+                  <option value="under-1000">Under $1,000/month</option>
+                  <option value="1000-2500">$1,000 to $2,500/month</option>
+                  <option value="2500-5000">$2,500 to $5,000/month</option>
+                  <option value="5000+">$5,000+/month</option>
+                  <option value="discuss">Let's Discuss</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cf-message">Your Message *</label>
+                <textarea class="form-textarea" id="cf-message" name="message" placeholder="Tell me about your business, your goals, and what you've already tried. The more context you share, the faster we can get to a useful conversation." required></textarea>
+              </div>
+
+              <div class="form-submit-wrap">
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:0.9rem 1.5rem;">
+                  <span class="btn-text">Send Message <i class="fas fa-paper-plane"></i></span>
+                  <span class="btn-loading" style="display:none;align-items:center;gap:0.6rem;"><i class="fas fa-circle-notch fa-spin"></i> Sending…</span>
+                </button>
+              </div>
+
+              <div class="form-success">
+                <i class="fas fa-circle-check" style="font-size:1.2rem;"></i>
+                <div>
+                  <strong style="color:#8bcf8b;display:block;">Message received!</strong>
+                  <span style="color:var(--text-secondary);font-size:0.85rem;">I'll get back to you within 24 hours.</span>
+                </div>
+              </div>
+              <div class="form-error" style="display:none;align-items:center;gap:0.8rem;padding:1rem 1.2rem;background:rgba(180,60,60,0.08);border:1px solid rgba(180,60,60,0.3);border-radius:var(--radius-sm);color:#cf8b8b;font-size:0.9rem;margin-top:0.8rem;">
+                <i class="fas fa-circle-exclamation" style="font-size:1.2rem;"></i>
+                <div><strong style="color:#cf8b8b;display:block;">Something went wrong.</strong><span style="color:var(--text-secondary);font-size:0.85rem;">Please try again or email directly at markosabel9@gmail.com</span></div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="font-size:1.3rem;"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+          <p>Performance marketing and CRM automation specialist helping businesses build complete revenue systems.</p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/markjosabel/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Pages</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Me</a></li><li><a href="services.html">Services</a></li><li><a href="case-studies.html">Case Studies</a></li></ul></div>
+        <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Meta &amp; Paid Ads</a></li><li><a href="services.html">CRM Automation</a></li><li><a href="services.html">Funnel Architecture</a></li><li><a href="services.html">Ad Creative</a></li><li><a href="services.html">Analytics</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:markosabel9@gmail.com">markosabel9@gmail.com</a></li><li><a href="tel:+639690448126">+63 969 044 8126</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Mark Osabel. All rights reserved.</span>
+        <div style="display:flex;gap:1.5rem;"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--accent);color:var(--cream);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s,transform 0.3s;z-index:500;box-shadow:var(--shadow-accent);"><i class="fas fa-arrow-up"></i></button>
+  <style>#back-to-top.visible{opacity:1;visibility:visible;}#back-to-top:hover{transform:translateY(-3px);background:var(--accent-light);}</style>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/animations.js"></script>
+
+  <script>
+    /* Web3Forms submission */
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn     = form.querySelector('button[type="submit"]');
+        var btnText = btn.querySelector('.btn-text');
+        var btnLoad = btn.querySelector('.btn-loading');
+        var success = form.querySelector('.form-success');
+        var error   = form.querySelector('.form-error');
+
+        // Reset error state
+        error.style.display = 'none';
+
+        // Show loading
+        btn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoad.style.display = 'flex';
+
+        var data = new FormData(form);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          if (json.success) {
+            btn.style.display = 'none';
+            success.classList.add('visible');
+            form.reset();
+          } else {
+            throw new Error(json.message || 'Submission failed');
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btnText.style.display = '';
+          btnLoad.style.display = 'none';
+          error.style.display = 'flex';
+        });
+      });
+    }());
+  </script>
+</body>
+</html>

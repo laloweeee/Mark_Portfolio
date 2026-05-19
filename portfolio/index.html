@@ -1,0 +1,1009 @@
+  <!-- ==================== HERO → ABOUT GRADIENT DIVIDER ==================== -->
+  <div class="section-gradient-divider" aria-hidden="true"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Performance marketing and CRM automation specialist helping businesses build complete revenue systems." />
+  <title>Mark Osabel — Digital Marketing Expert</title>
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ---- Splash Screen: single full-screen video ---- */
+    #splash-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: #000000;
+      overflow: hidden;
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #splash-screen.fading { opacity: 0; pointer-events: none; }
+    #splash-screen.hidden { display: none; }
+    #splash-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---- Parallax page reveal: layers hidden until .page-ready on body ---- */
+    body:not(.page-ready) #navbar,
+    body:not(.page-ready) .hero-bg,
+    body:not(.page-ready) .hero-content,
+    body:not(.page-ready) .hero-social,
+    body:not(.page-ready) .hero-scroll {
+      opacity: 0;
+    }
+
+    /* BG image: slides up from below — deepest layer, most travel */
+    body.page-ready .hero-bg {
+      animation: revealFromBottom 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+    /* Navbar: slides down from top */
+    body.page-ready #navbar {
+      animation: revealFromTop 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+    }
+    /* Hero text: slides in from the left */
+    body.page-ready .hero-content {
+      animation: revealFromLeft 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+    }
+    /* Social + scroll indicator: slide in from the right */
+    body.page-ready .hero-social,
+    body.page-ready .hero-scroll {
+      animation: revealFromRight 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+    }
+
+    @keyframes revealFromBottom {
+      from { opacity: 0; transform: translateY(60px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes revealFromTop {
+      from { opacity: 0; transform: translateX(-50%) translateY(-36px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @keyframes revealFromLeft {
+      from { opacity: 0; transform: translateX(-80px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes revealFromRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ---- Navbar: floating pill ---- */
+    #navbar {
+      position: fixed !important;
+      top: 1.1rem !important;
+      left: 50% !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      z-index: 9999 !important;
+      background: rgba(8, 8, 8, 0.48) !important;
+      backdrop-filter: blur(20px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.13) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45) !important;
+      overflow: hidden !important;
+      transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease !important;
+    }
+    #navbar.scrolled {
+      background: rgba(8, 8, 8, 0.75) !important;
+      border-color: rgba(255, 255, 255, 0.16) !important;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55) !important;
+    }
+
+    /* ---- Hero Section ---- */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/bg.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: 0;
+    }
+
+    /* Left-side overlay — low opacity, just enough for text legibility */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.60) 0%,
+        rgba(0, 0, 0, 0.35) 40%,
+        rgba(0, 0, 0, 0.08) 65%,
+        transparent 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Bottom fade — blends hero image into the gradient divider below */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 45%;
+      background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: calc(var(--nav-height) + 5rem) var(--space-md) 6rem;
+    }
+
+    .hero-content {
+      max-width: 620px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 0.8s var(--ease) 0.2s both;
+    }
+
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    .hero-name {
+      font-size: clamp(3.5rem, 7vw, 7.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .hero-name-word {
+      display: inline-block;
+      animation: heroTextSlide 0.9s var(--ease) both;
+    }
+
+    .hero-name-word:nth-child(1) { animation-delay: 0.3s; font-weight: 800; color: #ffffff; }
+    .hero-name-word:nth-child(2) { animation-delay: 0.45s; color: var(--accent-light); font-weight: 300; letter-spacing: -0.05em; }
+
+    .hero-role {
+      font-family: var(--font-body);
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s var(--ease) 0.6s both;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-role-static { color: rgba(225, 236, 252, 0.80); }
+
+    .hero-role-dynamic {
+      color: var(--accent-light);
+      font-weight: 600;
+      min-width: 180px;
+    }
+
+    /* Quote block */
+    .hero-quote {
+      position: relative;
+      border-left: 3px solid #e1ecfc;
+      padding: 1.25rem 1.5rem;
+      background: rgba(237, 235, 217, 0.06);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 2.5rem;
+      animation: fadeInLeft 0.8s var(--ease) 0.7s both;
+    }
+
+    .hero-quote blockquote {
+      font-family: var(--font-body);
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-quote cite {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: normal;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s var(--ease) 0.85s both;
+    }
+
+    /* Right: big photo */
+    /* Social sidebar */
+    .hero-social {
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      left: auto;
+      bottom: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 3;
+    }
+
+    .hero-social::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, rgba(225, 236, 252, 0.40));
+    }
+
+    .hero-social a {
+      color: #e1ecfc;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .hero-social a:hover {
+      color: #ffffff;
+      transform: scale(1.2);
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      z-index: 3;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: floatY 2s ease-in-out infinite;
+    }
+
+    /* ---- About Snapshot ---- */
+    #about-snap {
+      border-bottom: 1px solid var(--border);
+      background: #000000 !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Radial glow spotlight */
+    #about-snap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 85% 75% at 50% 50%,
+          rgba(90, 111, 142, 0.80) 0%,
+          rgba(90, 111, 142, 0.32) 50%,
+          transparent 72%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ensure content sits above the glow */
+    #about-snap .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-snap-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-snap-img {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 16/17;
+      background: #111111;
+    }
+
+    .about-snap-img img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+    }
+
+    .about-snap-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-xl);
+      pointer-events: none;
+    }
+
+    .about-snap-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--dark-brown), var(--bg-surface-3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--text-muted);
+    }
+
+    /* ---- Services Preview ---- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .services-grid { grid-template-columns: 1fr; } }
+
+    /* ---- Work Carousel ---- */
+    #work { border-top: none; border-bottom: none; }
+
+    /* ---- Testimonials ---- */
+    #testimonials { background: var(--bg-primary); }
+
+    /* ---- Responsive hero ---- */
+    @media (max-width: 900px) {
+      .hero-inner      { padding-top: calc(var(--nav-height) + 3rem); padding-bottom: 5rem; }
+      .hero-content    { max-width: 100%; }
+      .hero-name       { white-space: normal; font-size: clamp(3rem, 9vw, 5rem); }
+      .hero-social     { display: none; }
+      .hero-scroll     { display: none; }
+      .about-snap-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .hero-quote { display: none; }
+    }
+
+    /* Hero buttons — gradient on dark */
+    #hero .btn-primary {
+      background: linear-gradient(135deg, #e1ecfc, #ffffff);
+      color: #000000;
+      box-shadow: 0 2px 24px rgba(225, 236, 252, 0.22);
+    }
+    #hero .btn-primary:hover {
+      background: linear-gradient(135deg, #ffffff, #e1ecfc);
+      color: #000000;
+      box-shadow: 0 8px 30px rgba(225, 236, 252, 0.28);
+    }
+    #hero .btn-secondary {
+      color: #e1ecfc;
+      border-color: #e1ecfc;
+    }
+    #hero .btn-secondary:hover {
+      background: linear-gradient(135deg, #e1ecfc, #ffffff);
+      color: #000000;
+      border-color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ==================== SPLASH SCREEN (first visit only) ==================== -->
+  <div id="splash-screen" aria-hidden="true">
+    <video id="splash-video" autoplay muted playsinline preload="auto">
+      <source src="assets/videos/splash.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- ==================== NOISE TEXTURE ==================== -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ==================== CUSTOM CURSOR ==================== -->
+  <div id="cursor-spotlight" aria-hidden="true"></div>
+  <div id="cursor-dot"       aria-hidden="true"></div>
+  <div id="cursor-ring"      aria-hidden="true"></div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"         class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary" id="nav-contact-btn">Contact with Me</a>
+      </div>
+
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="nav-mobile-overlay" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Me</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="contact.html" style="color: var(--accent-light);">Contact</a>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow" aria-hidden="true">
+          <span class="dot"></span>
+          Performance Marketing + CRM Automation
+        </div>
+
+        <h1 class="hero-name" id="hero-heading">
+          <span class="hero-name-word">Mark</span>&nbsp;
+          <span class="hero-name-word">Osabel</span>
+        </h1>
+
+        <p class="hero-role">
+          <span class="hero-role-static">I specialize in</span>
+          <span class="hero-role-dynamic"
+            data-type="Paid Media, CRM Automation, Funnel Architecture, Ad Creative, Analytics"
+            data-type-speed="80"
+            data-type-pause="2000"
+          ></span>
+        </p>
+
+        <div class="hero-quote">
+          <blockquote>
+            "The best marketing does not stop at the click. It follows your customer all the way to the sale."
+          </blockquote>
+          <cite>— Mark Osabel</cite>
+        </div>
+
+        <div class="hero-actions">
+          <a href="case-studies.html" class="btn btn-primary hero-cta-primary">
+            View My Work <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="contact.html" class="btn btn-secondary">
+            Let's Talk <i class="fas fa-comment-dots"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social sidebar -->
+    <div class="hero-social" aria-label="Social links">
+      <a href="https://www.linkedin.com/in/markjosabel/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+    </div>
+
+  </section>
+
+
+
+  <!-- ==================== SERVICES PREVIEW CARDS ==================== -->
+  <section id="services-cards">
+    <div class="sc-container">
+      <div class="sc-grid">
+
+        <!-- Card 1: Meta Ads (top-left, tall) -->
+        <div class="sc-card sc-card--1">
+          <div class="sc-card-img-wrap">
+            <img src="assets/images/meta.png" alt="Meta Ads">
+          </div>
+          <div class="sc-card-body">
+            <span class="sc-eyebrow">Paid Media</span>
+            <div class="sc-title-desc-wrap">
+              <h3 class="sc-title">Meta &amp; Paid Advertising</h3>
+              <span class="sc-desc">High-ROI paid campaigns across Meta, Google, TikTok, and LinkedIn. Every dollar tracked, every conversion optimized. I build the campaign architecture, write the creative, and manage the budget so you can focus on the business.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: CRM (top-right, short) -->
+        <div class="sc-card sc-card--2">
+          <div class="sc-card-img-wrap">
+            <img src="assets/images/CRM.png" alt="CRM Systems">
+          </div>
+          <div class="sc-card-body">
+            <span class="sc-eyebrow">Automation</span>
+            <div class="sc-title-desc-wrap">
+              <h3 class="sc-title">CRM Automation &amp; Lead Nurturing</h3>
+              <span class="sc-desc">Targeted email campaigns and smart automation sequences that turn subscribers into repeat buyers and leads into long-term clients. Built on GoHighLevel, HubSpot, ActiveCampaign, and more.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Funnel (bottom-left, short) -->
+        <div class="sc-card sc-card--3">
+          <div class="sc-card-img-wrap">
+            <img src="assets/images/funnel.png" alt="Funnel Building">
+          </div>
+          <div class="sc-card-body">
+            <span class="sc-eyebrow">Lead Architecture</span>
+            <div class="sc-title-desc-wrap">
+              <h3 class="sc-title">Funnel Architecture &amp; CRO</h3>
+              <span class="sc-desc">Full-funnel design from the first ad click to the closed deal. I map the entire customer journey, build the landing pages, and integrate the booking and intake systems that make conversions happen.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Analytics (bottom-right, tall) -->
+        <div class="sc-card sc-card--4">
+          <div class="sc-card-img-wrap">
+            <img src="assets/images/analytics.png" alt="Analytics">
+          </div>
+          <div class="sc-card-body">
+            <span class="sc-eyebrow">Tracking</span>
+            <div class="sc-title-desc-wrap">
+              <h3 class="sc-title">Analytics &amp; Reporting</h3>
+              <span class="sc-desc">Turn data into direction. I set up tracking, build custom dashboards, and deliver clear monthly reports that show exactly what your campaigns are producing and where to push next.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT SNAPSHOT ==================== -->
+  <section id="about-snap" class="section section-light">
+    <div class="container">
+      <div class="about-snap-grid">
+        <div class="about-snap-img reveal-left">
+          <img src="assets/images/profile.png" alt="Mark Osabel" />
+        </div>
+
+        <div class="reveal-right">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title reveal" style="text-align:left; margin-bottom:1rem;">
+            The Specialist Behind the Numbers
+          </h2>
+          <div class="divider"></div>
+          <p style="margin-bottom:1.25rem;">
+            I have spent 11 years building paid media campaigns and automation systems that do more than generate leads. They close them.
+          </p>
+          <p style="margin-bottom:2rem;">
+            My work sits at the intersection of strategy, creative, and technology, so the clients I work with do not need three separate agencies to get results. They need one system and someone who knows how to build it.
+          </p>
+
+          <div class="stats-row stagger-children" style="margin-bottom:2rem;">
+            <div class="stat-item">
+              <span class="stat-number" data-counter data-target="11" data-suffix="+">11+</span>
+              <span class="stat-label">Years in Paid Media &amp; Automation</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">$150K</span>
+              <span class="stat-label">Max Monthly Ad Budget</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-counter data-target="40" data-suffix="+">40+</span>
+              <span class="stat-label">Automation Workflows Built</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-counter data-target="8" data-suffix="+">8+</span>
+              <span class="stat-label">Industries Served</span>
+            </div>
+          </div>
+
+          <a href="about.html" class="btn btn-primary">
+            Get to Know Me <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES PREVIEW ==================== -->
+  <section id="services-preview" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title reveal">My Core Services</h2>
+        <p class="section-subtitle reveal">
+          End-to-end performance systems designed to grow your pipeline and close more clients.
+        </p>
+      </div>
+
+      <div class="services-grid stagger-children">
+        <div class="service-card" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+          <h4>Meta &amp; Paid Advertising</h4>
+          <p>High-ROI paid campaigns across Meta, Google, TikTok, and LinkedIn. Every dollar tracked, every conversion optimized.</p>
+        </div>
+
+        <div class="service-card" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-gears"></i></div>
+          <h4>CRM Automation &amp; Lead Nurturing</h4>
+          <p>Smart automation sequences that turn new leads into repeat buyers and subscribers into long-term clients.</p>
+        </div>
+
+        <div class="service-card" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-diagram-project"></i></div>
+          <h4>Funnel Architecture &amp; CRO</h4>
+          <p>Full-funnel design from first click to closed deal. Landing pages, booking flows, and quiz funnels built to convert.</p>
+        </div>
+
+        <div class="service-card" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-film"></i></div>
+          <h4>Ad Creative Production</h4>
+          <p>Scroll-stopping video and static ad creatives built for performance. Direction, editing, and copy all handled in one place.</p>
+        </div>
+
+        <div class="service-card" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+          <h4>Analytics &amp; Reporting</h4>
+          <p>Turn data into direction. Custom dashboards and clear monthly reports that show exactly what is working and what is not.</p>
+        </div>
+
+        <div class="service-card" data-tilt="5">
+          <div class="service-icon"><i class="fas fa-chess"></i></div>
+          <h4>Campaign Strategy &amp; Planning</h4>
+          <p>Audience research, channel selection, messaging frameworks, and KPI targets set before anything goes live.</p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:3rem;">
+        <a href="services.html" class="btn btn-primary">View All Services <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED WORK CAROUSEL ==================== -->
+  <section id="work" class="section section-light">
+    <div class="container">
+      <div class="flex-between" style="margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <span class="section-label">Portfolio</span>
+          <h2 class="section-title reveal" style="text-align:left;">Featured Work</h2>
+        </div>
+        <a href="case-studies.html" class="btn btn-primary">All Case Studies <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- Carousel -->
+      <div class="carousel-wrap" data-autoplay="4000" data-loop="true" data-per-view="1">
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-card-img" style="width:100%;height:100%;">
+                <img src="assets/images/healthcare.png" alt="Healthcare Clinic Case Study" style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;" />
+              </div>
+              <div class="project-card-overlay">
+                <span class="project-card-category">Healthcare / Meta Ads</span>
+                <h3 class="project-card-title">Healthcare Clinic Cut Cost Per Lead from $15 to $2.14</h3>
+                <a href="case-studies.html" class="project-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-card-img" style="width:100%;height:100%;">
+                <img src="assets/images/motorcycle.png" alt="Motorcycle Accessories Brand" style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;" />
+              </div>
+              <div class="project-card-overlay">
+                <span class="project-card-category">Ecommerce / Paid Media</span>
+                <h3 class="project-card-title">Motorcycle Accessories Brand: 9.83x Average ROAS</h3>
+                <a href="case-studies.html" class="project-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-card-img" style="width:100%;height:100%;">
+                <img src="assets/images/candle.png" alt="DTC Candle Brand" style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;" />
+              </div>
+              <div class="project-card-overlay">
+                <span class="project-card-category">Ecommerce / CRM Automation</span>
+                <h3 class="project-card-title">Candle Brand: 6.96x ROAS on Cart Abandonment</h3>
+                <a href="case-studies.html" class="project-card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;flex-wrap:wrap;gap:1rem;">
+          <div class="carousel-dots"></div>
+          <div style="display:flex;gap:0.75rem;">
+            <button class="carousel-btn carousel-btn-prev" aria-label="Previous slide">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="carousel-btn carousel-btn-next" aria-label="Next slide">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What Clients Say</span>
+        <h2 class="section-title reveal">What Clients Say</h2>
+      </div>
+
+      <div class="carousel-wrap" data-autoplay="5000" data-loop="true" data-per-view="1">
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p class="testimonial-text">
+                "[Client quote coming soon.]"
+              </p>
+              <div class="testimonial-author">
+                <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-glow);border:2px solid var(--border-accent);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">👤</div>
+                <div>
+                  <div class="testimonial-author-name">[Full Name]</div>
+                  <div class="testimonial-author-role">[Title, Business Name]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p class="testimonial-text">
+                "[Client quote coming soon.]"
+              </p>
+              <div class="testimonial-author">
+                <div style="width:44px;height:44px;border-radius:50%;background:var(--accent-glow);border:2px solid var(--border-accent);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">👤</div>
+                <div>
+                  <div class="testimonial-author-name">[Full Name]</div>
+                  <div class="testimonial-author-role">[Title, Business Name]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;flex-wrap:wrap;gap:1rem;">
+          <div class="carousel-dots"></div>
+          <div style="display:flex;gap:0.75rem;">
+            <button class="carousel-btn carousel-btn-prev" aria-label="Previous testimonial"><i class="fas fa-arrow-left"></i></button>
+            <button class="carousel-btn carousel-btn-next" aria-label="Next testimonial"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BAND ==================== -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="cta-band reveal-scale">
+        <div class="orb orb-3" aria-hidden="true"></div>
+        <span class="section-label" style="margin-bottom:1rem;">Ready to Grow</span>
+        <h2>Ready to Build Something<br/><span class="text-accent">That Actually Converts?</span></h2>
+        <p>Let's talk about which combination of paid media and automation will have the biggest impact on your business.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">Start a Conversation <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="font-size:1.3rem;"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+          <p>Performance marketing and CRM automation specialist helping businesses build complete revenue systems.</p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/markjosabel/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="services.html">Meta &amp; Paid Ads</a></li>
+            <li><a href="services.html">CRM Automation</a></li>
+            <li><a href="services.html">Funnel Architecture</a></li>
+            <li><a href="services.html">Ad Creative</a></li>
+            <li><a href="services.html">Analytics</a></li>
+            <li><a href="services.html">Campaign Strategy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="mailto:markosabel9@gmail.com">markosabel9@gmail.com</a></li>
+            <li><a href="tel:+639690448126">+63 969 044 8126</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Mark Osabel. All rights reserved.</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top" style="
+    position:fixed; bottom:2rem; right:2rem;
+    width:44px; height:44px;
+    background:var(--accent); color:var(--cream);
+    border:none; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1rem; cursor:pointer;
+    opacity:0; visibility:hidden;
+    transition:opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index:500; box-shadow:var(--shadow-accent);
+  ">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <style>
+    #back-to-top.visible { opacity:1; visibility:visible; }
+    #back-to-top:hover { transform:translateY(-3px); background:var(--accent-light); }
+  </style>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/tour.js"></script>
+  <script>
+    // Inline navbar scroll — reinforces main.js
+    (function () {
+      var nav = document.getElementById('navbar');
+      if (!nav) return;
+      function onScroll() {
+        nav.classList.toggle('scrolled', window.scrollY > 30);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+  <!-- ==================== SPLASH SCREEN CONTROLLER ==================== -->
+  <script>
+    (function () {
+      var splash = document.getElementById('splash-screen');
+      var loader = document.getElementById('loader');
+      var video  = document.getElementById('splash-video');
+      var SEEN_KEY = 'splashSeen';
+
+      // ---- Returning visit: skip splash, use standard loader ----
+      if (sessionStorage.getItem(SEEN_KEY)) {
+        // Hide splash immediately
+        splash.classList.add('hidden');
+
+        // Standard loader takes over (main.js initLoader handles hiding it)
+        document.body.classList.add('page-ready');
+        return;
+      }
+
+      // ---- First visit: play splash ----
+      // Hide the loader so it doesn't overlap the splash
+      if (loader) loader.classList.add('hidden');
+
+      document.body.style.overflow = 'hidden';
+      var dismissed = false;
+
+      function reveal() {
+        if (dismissed) return;
+        dismissed = true;
+
+        // Mark as seen so returning visits skip the splash
+        sessionStorage.setItem(SEEN_KEY, '1');
+
+        // Fade out the splash over 0.7s
+        splash.classList.add('fading');
+
+        // Halfway through the fade, start page elements animating in
+        setTimeout(function () {
+          document.body.classList.add('page-ready');
+          document.body.style.overflow = '';
+        }, 350);
+
+        // Remove splash from DOM after fade completes
+        setTimeout(function () {
+          splash.classList.add('hidden');
+        }, 750);
+      }
+
+      video.addEventListener('ended', reveal);
+
+      video.play().catch(function () {
+        setTimeout(reveal, 500);
+      });
+
+      // Hard fallback: 15s
+      setTimeout(reveal, 15000);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case studies and portfolio of Mark Osabel — real paid media and CRM automation campaigns with measurable results across healthcare, ecommerce, and beyond." />
+  <title>Case Studies — Mark Osabel</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* Portfolio grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      transition: all 0.4s var(--ease);
+    }
+
+    @media (max-width: 900px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .portfolio-grid { grid-template-columns: 1fr; } }
+
+    .case-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: var(--transition-md);
+      cursor: pointer;
+    }
+
+    .case-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .case-card-img {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--bg-surface-3);
+      position: relative;
+    }
+
+    .case-card-img img,
+    .case-card-img-placeholder {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--text-muted);
+    }
+
+    .case-card:hover .case-card-img img,
+    .case-card:hover .case-card-img-placeholder {
+      transform: scale(1.06);
+    }
+
+    .case-card-body {
+      padding: 1.5rem;
+    }
+
+    .case-card-category {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .case-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .case-card-excerpt {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .case-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .case-card-metric {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-card-metric-value {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent-light);
+    }
+
+    .case-card-metric-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .case-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      transition: gap 0.2s;
+    }
+
+    .case-card:hover .case-card-link { gap: 0.7rem; }
+
+    /* Featured case study */
+    .featured-case {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      min-height: 420px;
+      margin-bottom: var(--space-lg);
+    }
+
+    @media (max-width: 768px) {
+      .featured-case { grid-template-columns: 1fr; }
+    }
+
+    .featured-case-img {
+      background: linear-gradient(135deg, var(--dark-brown), var(--bg-surface-3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: var(--text-muted);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-case-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--bg-surface-2));
+    }
+
+    .featured-case-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .featured-case-stats {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .featured-stat { }
+
+    .featured-stat-value {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-light);
+    }
+
+    .featured-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 768px) {
+      .featured-case-content { padding: 2rem; }
+    }
+
+    /* ---- Navbar: floating pill ---- */
+    #navbar {
+      position: fixed !important;
+      top: 1.1rem !important;
+      left: 50% !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      z-index: 9999 !important;
+      background: rgba(8, 8, 8, 0.48) !important;
+      backdrop-filter: blur(20px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.13) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45) !important;
+      overflow: hidden !important;
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div id="cursor-spotlight" aria-hidden="true"></div>
+  <div id="cursor-dot"       aria-hidden="true"></div>
+  <div id="cursor-ring"      aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="case-studies.html" class="active">Case Studies</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Contact with Me</a>
+      </div>
+      <button class="nav-hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile-overlay">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Me</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="contact.html" style="color:var(--accent-light);">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="container">
+      <span class="page-hero-label">Portfolio</span>
+      <h1 class="page-hero-title reveal">All Case Studies</h1>
+      <p class="section-subtitle reveal" style="margin:0 0 2rem;text-align:left;">
+        Real campaigns, real results. A selection of projects that demonstrate what a complete revenue system can produce across healthcare, ecommerce, and beyond.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-gradient" id="cs-cards" style="padding-top:2rem;">
+    <div class="container">
+
+      <!-- Featured Case Study -->
+      <div class="reveal">
+          <div class="featured-case">
+          <div class="featured-case-img">
+            <img src="assets/images/healthcare.png" alt="Healthcare Clinic Case Study" style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;" />
+          </div>
+          <div class="featured-case-content">
+            <span style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-light);font-weight:700;">Featured Case Study</span>
+            <h2 style="font-size:1.6rem;line-height:1.2;">Healthcare Clinic — $2.14 to $3.51 Cost Per Lead on Meta. Industry Average: $15 to $40.</h2>
+            <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+              A full paid media and funnel system built for a multi-location healthcare clinic. Campaigns were built around compliance-safe creative and a landing page optimised for booking intent.
+            </p>
+            <div class="featured-case-stats">
+              <div class="featured-stat">
+                <div class="featured-stat-value">$2.14–$3.51</div>
+                <div class="featured-stat-label">Cost Per Lead</div>
+              </div>
+              <div class="featured-stat">
+                <div class="featured-stat-value">vs. $15–$40</div>
+                <div class="featured-stat-label">Industry Average</div>
+              </div>
+              <div class="featured-stat">
+                <div class="featured-stat-value">Meta Ads</div>
+                <div class="featured-stat-label">Healthcare Compliance</div>
+              </div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="width:fit-content;">
+              Discuss a Similar Project <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div data-filter-group data-filter-target=".case-card">
+        <div class="filter-tabs stagger-children">
+          <button class="filter-tab btn btn-secondary active" data-filter="all">All Projects</button>
+          <button class="filter-tab btn btn-secondary" data-filter="paid-media">Paid Media</button>
+          <button class="filter-tab btn btn-secondary" data-filter="crm-automation">CRM Automation</button>
+          <button class="filter-tab btn btn-secondary" data-filter="funnel">Funnel Architecture</button>
+          <button class="filter-tab btn btn-secondary" data-filter="healthcare">Healthcare</button>
+        </div>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid stagger-children">
+
+        <!-- Card 1: Motorcycle Accessories -->
+        <div class="case-card" data-category="paid-media">
+          <div class="case-card-img">
+            <img src="assets/images/motorcycle.png" alt="Motorcycle Accessories Brand" class="case-card-img-placeholder" style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;" />
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-category">Paid Media</div>
+            <h3 class="case-card-title">Motorcycle Accessories Brand — 9.83x Average ROAS Across 54 Campaigns</h3>
+            <p class="case-card-excerpt">Built and managed 54 Meta campaigns for a motorcycle accessories brand, delivering 9.83x average ROAS and a peak of 23.93x on top-performing creatives.</p>
+            <div class="case-card-footer">
+              <div class="case-card-metric">
+                <span class="case-card-metric-value">9.83x</span>
+                <span class="case-card-metric-label">Avg ROAS · 54 Campaigns</span>
+              </div>
+              <a href="#" class="case-card-link">View Case Study <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75em;"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: DTC Candle Brand -->
+        <div class="case-card" data-category="crm-automation">
+          <div class="case-card-img">
+            <img src="assets/images/candle.png" alt="DTC Candle Brand" class="case-card-img-placeholder" style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;" />
+          </div>
+          <div class="case-card-body">
+            <div class="case-card-category">CRM Automation</div>
+            <h3 class="case-card-title">DTC Candle Brand — 6.96x ROAS on Cart Abandonment</h3>
+            <p class="case-card-excerpt">Designed and launched a cart abandonment automation sequence for a DTC candle brand. $177K+ in managed ad spend with a 6.96x return through retargeting and CRM flows.</p>
+            <div class="case-card-footer">
+              <div class="case-card-metric">
+                <span class="case-card-metric-value">6.96x</span>
+                <span class="case-card-metric-label">ROAS · $177K+ Ad Spend</span>
+              </div>
+              <a href="#" class="case-card-link">View Case Study <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75em;"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="cta-band reveal-scale">
+        <span class="section-label" style="margin-bottom:1rem;">Interested to Get My Services</span>
+        <h2>Want Results Like These<br/><span class="text-accent">for Your Business?</span></h2>
+        <p>Every project starts with a conversation. Let's talk about what success looks like for you.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">Get Started <i class="fas fa-arrow-up-right-from-square" style="font-size:0.8em;"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="font-size:1.3rem;"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+          <p>Performance marketing and CRM automation specialist helping businesses build complete revenue systems.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Pages</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Me</a></li><li><a href="services.html">Services</a></li><li><a href="case-studies.html">Case Studies</a></li></ul></div>
+        <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Meta &amp; Paid Ads</a></li><li><a href="services.html">CRM Automation</a></li><li><a href="services.html">Funnel Architecture</a></li><li><a href="services.html">Ad Creative</a></li><li><a href="services.html">Analytics</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:markosabel9@gmail.com">markosabel9@gmail.com</a></li><li><a href="tel:+639690448126">+63 969 044 8126</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Mark Osabel. All rights reserved.</span>
+        <div style="display:flex;gap:1.5rem;"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--accent);color:var(--cream);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s,transform 0.3s;z-index:500;box-shadow:var(--shadow-accent);"><i class="fas fa-arrow-up"></i></button>
+  <style>#back-to-top.visible{opacity:1;visibility:visible;}#back-to-top:hover{transform:translateY(-3px);background:var(--accent-light);}</style>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

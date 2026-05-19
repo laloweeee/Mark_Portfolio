@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about Mark Osabel — performance marketing and CRM automation specialist with 11+ years of experience in paid media and automation systems." />
+  <title>About Me — Mark Osabel</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ---- About Story ---- */
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-story-img-wrap {
+      position: relative;
+    }
+
+    .about-story-img {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 16/17;
+      background: #111111;
+    }
+
+    .about-story-img img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+    }
+
+    .about-story-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-xl);
+      pointer-events: none;
+    }
+
+    .about-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--dark-brown), var(--bg-surface-3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: var(--text-muted);
+    }
+
+    .about-accent-card {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: linear-gradient(135deg, #000000, #5A6F8E);
+      color: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      min-width: 130px;
+    }
+
+    .about-accent-card strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .about-accent-card span {
+      font-size: 0.78rem;
+      opacity: 0.85;
+    }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      text-align: center;
+      transition: var(--transition-md);
+    }
+
+    .value-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .value-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+
+    .value-desc {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Skills section */
+    .skills-section {
+      border-top: none;
+      border-bottom: none;
+    }
+
+    /* Story section — black bg + radial glow (matches homepage about preview) */
+    #about-story {
+      background: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+    #about-story::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 85% 75% at 50% 50%,
+        rgba(90, 111, 142, 0.80) 0%,
+        rgba(90, 111, 142, 0.32) 50%,
+        transparent 72%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    #about-story .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CTA section */
+    #about-cta {
+      background: #5A6F8E !important;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* Experience timeline */
+    .exp-section {}
+
+    @media (max-width: 900px) {
+      .about-story-grid  { grid-template-columns: 1fr; }
+      .values-grid       { grid-template-columns: repeat(2, 1fr); }
+      .skills-layout     { grid-template-columns: 1fr; }
+      .about-accent-card { right: 0; }
+    }
+
+    @media (max-width: 540px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- Navbar: floating pill ---- */
+    #navbar {
+      position: fixed !important;
+      top: 1.1rem !important;
+      left: 50% !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      z-index: 9999 !important;
+      background: rgba(8, 8, 8, 0.48) !important;
+      backdrop-filter: blur(20px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.13) !important;
+      border-radius: 999px !important;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45) !important;
+      overflow: hidden !important;
+    }
+  </style>
+</head>
+<body class="inner-page">
+  <!-- Loader -->
+
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div id="cursor-spotlight" aria-hidden="true"></div>
+  <div id="cursor-dot"       aria-hidden="true"></div>
+  <div id="cursor-ring"      aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html" class="active">About Me</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Contact with Me</a>
+      </div>
+      <button class="nav-hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile-overlay">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Me</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="contact.html" style="color:var(--accent-light);">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="container">
+      <span class="page-hero-label">Meet the Marketer</span>
+      <h1 class="page-hero-title reveal">About Me</h1>
+      <p class="section-subtitle reveal" style="margin:0;text-align:left;">
+        Passionate about turning ad spend into revenue and data into decisions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section" id="about-story">
+    <div class="container">
+      <div class="about-story-grid">
+        <div>
+          <div class="about-story-img-wrap reveal-left">
+            <div class="about-story-img">
+              <img src="assets/images/profile.png" alt="Mark Osabel" />
+            </div>
+            <div class="about-accent-card float-element">
+              <strong>11+</strong>
+              <span>Years in Marketing</span>
+            </div>
+          </div>
+          <div class="skills-cloud" style="margin-top:3rem;">
+            <span class="tag">Meta Ads</span>
+            <span class="tag">Google Ads</span>
+            <span class="tag">TikTok Ads</span>
+            <span class="tag">LinkedIn Ads</span>
+            <span class="tag">GoHighLevel</span>
+            <span class="tag">HubSpot</span>
+            <span class="tag">ActiveCampaign</span>
+            <span class="tag">ManyChat</span>
+            <span class="tag">Zapier</span>
+            <span class="tag">Email Automation</span>
+            <span class="tag">Funnel Architecture</span>
+            <span class="tag">Analytics</span>
+          </div>
+        </div>
+
+        <div class="reveal-right">
+          <span class="section-label">My Story</span>
+          <h2 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;text-align:left;">
+            Hi, I'm Mark — <span class="text-accent">your Performance Marketing and CRM Automation Specialist</span>
+          </h2>
+          <div class="divider"></div>
+
+          <p style="margin-bottom:1rem;">
+            My career started over 11 years ago when I realized that the gap between a business running ads and a business running a real revenue system was enormous. Ads without automation leak leads. Automation without the right traffic is wasted infrastructure. I built my skills across both so the clients I work with get the complete picture.
+          </p>
+          <p style="margin-bottom:1rem;">
+            I have had the privilege of managing campaigns across healthcare, ecommerce, SaaS, fitness, professional services, financial services, travel, and home improvement. Each industry taught me something different about buyer behavior, compliance constraints, and what actually moves someone from interested to converted.
+          </p>
+          <p style="margin-bottom:2rem;">
+            When I am not in Ads Manager or building out a workflow in GoHighLevel, I am probably testing a new funnel concept or analyzing why a creative that should work is not working.
+          </p>
+
+          <div class="stats-row stagger-children" style="margin-bottom:2rem;">
+            <div class="stat-item">
+              <span class="stat-number" data-counter data-target="11" data-suffix="+">11+</span>
+              <span class="stat-label">Years in Paid Media &amp; Automation</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">$150K</span>
+              <span class="stat-label">Max Monthly Ad Budget</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-counter data-target="40" data-suffix="+">40+</span>
+              <span class="stat-label">Automation Workflows Built</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-counter data-target="8" data-suffix="+">8+</span>
+              <span class="stat-label">Industries Served</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section section-light skills-section section-gradient" id="about-skills">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:3rem;">
+        <span class="section-label">Expertise</span>
+        <h2 class="section-title reveal">Skills &amp; Proficiency</h2>
+      </div>
+
+        <div class="skills-layout">
+        <div class="reveal-left">
+          <h4 style="margin-bottom:1.5rem;color:var(--accent-light);">Marketing Skills</h4>
+
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Meta Ads Manager</span><span>95%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95%"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Google Ads</span><span>85%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>TikTok &amp; LinkedIn Ads</span><span>82%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82%"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Email Automation &amp; Sequencing</span><span>92%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92%"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Funnel Architecture &amp; CRO</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90%"></div></div>
+          </div>
+        </div>
+
+        <div class="reveal-right">
+          <h4 style="margin-bottom:1.5rem;color:var(--accent-light);">Tools &amp; Platforms</h4>
+
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>GoHighLevel (GHL)</span><span>95%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95%"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>HubSpot</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>ActiveCampaign</span><span>85%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>ManyChat &amp; Zapier</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90%"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Google Analytics</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section-gradient" id="about-values">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What I Believe</span>
+        <h2 class="section-title reveal">My Core Values</h2>
+      </div>
+
+      <div class="values-grid stagger-children">
+        <div class="value-card" data-tilt="5">
+          <span class="value-icon">🎯</span>
+          <div class="value-title">Results Over Vanity</div>
+          <p class="value-desc">Every strategy is built around measurable outcomes. If it does not move the revenue needle, it does not belong in the plan.</p>
+        </div>
+        <div class="value-card" data-tilt="5">
+          <span class="value-icon">🔗</span>
+          <div class="value-title">Full-System Thinking</div>
+          <p class="value-desc">I look at the entire customer journey from the first click to the closed deal. No siloed tactics, no gaps in the pipeline.</p>
+        </div>
+        <div class="value-card" data-tilt="5">
+          <span class="value-icon">📊</span>
+          <div class="value-title">Honest Reporting</div>
+          <p class="value-desc">You always know what is happening and why. No spin, no cherry-picked metrics, no hiding behind impressions when conversions are what matter.</p>
+        </div>
+        <div class="value-card" data-tilt="5">
+          <span class="value-icon">💡</span>
+          <div class="value-title">Data-Backed Creativity</div>
+          <p class="value-desc">Instinct gets tested. Data decides. Every creative choice is measured and iterated based on what the numbers say.</p>
+        </div>
+        <div class="value-card" data-tilt="5">
+          <span class="value-icon">🌱</span>
+          <div class="value-title">Sustainable Growth</div>
+          <p class="value-desc">I build systems, not one-off campaigns. Your marketing should compound over time. Each month should be smarter than the last.</p>
+        </div>
+        <div class="value-card" data-tilt="5">
+          <span class="value-icon">🤝</span>
+          <div class="value-title">True Partnership</div>
+          <p class="value-desc">I treat your business like my own. When you win, I win. We are fully aligned on what success looks like.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section class="section section-light section-gradient" id="about-experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Journey</span>
+        <h2 class="section-title reveal">Professional Experience</h2>
+      </div>
+
+      <div style="max-width:700px;margin:0 auto;" class="reveal">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2022 — Present</div>
+            <div class="timeline-title">Performance Marketing and CRM Automation Specialist</div>
+            <div class="timeline-company">Freelance · Remote</div>
+            <p class="timeline-desc">Working across healthcare, ecommerce, SaaS, and professional services clients. Managing paid media campaigns, CRM automation systems, funnel architecture, and ad creative production. Clients referred through network and direct outreach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="about-cta">
+    <div class="container">
+      <div class="cta-band reveal-scale">
+        <span class="section-label" style="margin-bottom:1rem;">Interested to Work Together</span>
+        <h2>Let's Create a System<br/><span class="text-accent">That Actually Works</span></h2>
+        <p>I am selective about the clients I take on because when I say yes, I am fully committed to your success.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">Get in Touch <i class="fas fa-arrow-right"></i></a>
+          <a href="case-studies.html" class="btn btn-secondary">View Case Studies <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="font-size:1.3rem;"><img src="assets/images/logomark.png" alt="" class="nav-logo-img" aria-hidden="true">Mark<span>Osabel</span></a>
+          <p>Performance marketing and CRM automation specialist helping businesses build complete revenue systems.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Pages</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="services.html">Meta &amp; Paid Ads</a></li>
+            <li><a href="services.html">CRM Automation</a></li>
+            <li><a href="services.html">Funnel Architecture</a></li>
+            <li><a href="services.html">Ad Creative</a></li>
+            <li><a href="services.html">Analytics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="mailto:markosabel9@gmail.com">markosabel9@gmail.com</a></li>
+            <li><a href="tel:+639690448126">+63 969 044 8126</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Mark Osabel. All rights reserved.</span>
+        <div style="display:flex;gap:1.5rem;"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--accent);color:var(--cream);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s,transform 0.3s;z-index:500;box-shadow:var(--shadow-accent);">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <style>#back-to-top.visible{opacity:1;visibility:visible;}#back-to-top:hover{transform:translateY(-3px);background:var(--accent-light);}</style>
+
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
