@@ -1,3 +1,49 @@
+/* ==================== MOBILE RESPONSIVE ENHANCEMENTS ==================== */
+@media (max-width: 900px) {
+  .sc-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .sc-card {
+    min-height: 260px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-row {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .footer-inner {
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 540px) {
+  .section {
+    padding: var(--space-md) 0;
+  }
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  .footer-top {
+    gap: var(--space-sm);
+  }
+  .footer-brand p {
+    max-width: 100%;
+  }
+  .service-card {
+    padding: 1.2rem 0.7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-mobile-overlay a {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+}
 # Gradient divider between hero and bento grid
 .section-gradient-divider {
   width: 100%;

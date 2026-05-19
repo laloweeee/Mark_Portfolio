@@ -1,3 +1,32 @@
+@media (max-width: 540px) {
+  .carousel-wrap {
+    padding: 0.5rem 0;
+  }
+  .carousel-slide {
+    min-width: 100vw;
+    box-sizing: border-box;
+  }
+  .testimonial-card {
+    padding: 1.1rem 0.5rem;
+    font-size: 0.98rem;
+  }
+}
+/* ==================== MOBILE RESPONSIVE ENHANCEMENTS ==================== */
+@media (max-width: 900px) {
+  .sc-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .sc-card {
+    min-height: 220px !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .service-card {
+    padding: 1.1rem 0.5rem;
+  }
+}
 /* Case Studies Filter Tabs — Match Let's Talk Button */
 /* Filter-tab button: only change to white bg and black font on hover/active/focus, keep previous size and style */
 .filter-tab.btn {

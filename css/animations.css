@@ -1,3 +1,13 @@
+/* ==================== MOBILE RESPONSIVE ENHANCEMENTS ==================== */
+@media (max-width: 540px) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    transition-duration: 0.5s;
+    font-size: 1rem;
+  }
+  .stagger-children > * {
+    font-size: 1rem;
+  }
+}
 /* ============================================================
    FILE: css/animations.css
    Keyframes, Scroll-triggered Animations, Transitions
