@@ -18,7 +18,8 @@
     gap: 1.25rem;
   }
   .sc-card {
-    min-height: 220px !important;
+    min-height: unset;
+    height: auto;
   }
 }
 
