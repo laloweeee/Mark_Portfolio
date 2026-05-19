@@ -63,14 +63,20 @@
   }
 }
 
-@media (max-width: 540px) {
-  .section {
-    padding: var(--space-md) 0;
-  }
-  .btn {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.95rem;
-  }
+@media (max-width: 900px) {
+  .hero-inner      { padding-top: calc(var(--nav-height) + 2rem); padding-bottom: 2.5rem; }
+  .hero-content    { max-width: 100%; padding: 0 0.5rem; }
+  .hero-name       { white-space: normal; font-size: clamp(2.1rem, 8vw, 2.8rem); line-height: 1.1; }
+  .hero-role       { font-size: 1.05rem; margin-bottom: 1.2rem; flex-direction: column; align-items: flex-start; }
+  .hero-actions    { flex-direction: column; gap: 0.7rem; align-items: stretch; }
+  .hero-quote      { font-size: 1rem; padding: 1rem 0.7rem; margin-bottom: 1.2rem; }
+  .hero-quote blockquote { font-size: 1rem; }
+  .hero-quote cite { font-size: 0.8rem; }
+  .btn.hero-cta-primary, .btn.btn-secondary { width: 100%; font-size: 1.05rem; padding: 0.9rem 0; }
+  .hero-social     { display: none; }
+  .hero-scroll     { display: none; }
+  .about-snap-grid { grid-template-columns: 1fr; }
+}
   .footer-top {
     gap: var(--space-sm);
   }
@@ -446,8 +452,14 @@ p {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 640px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+@media (max-width: 540px) {
+  .hero-inner      { padding-top: calc(var(--nav-height) + 1.2rem); padding-bottom: 1.2rem; }
+  .hero-content    { padding: 0 0.2rem; }
+  .hero-name       { font-size: 2rem; }
+  .hero-role       { font-size: 0.98rem; }
+  .hero-actions    { gap: 0.5rem; }
+  .btn.hero-cta-primary, .btn.btn-secondary { font-size: 0.98rem; padding: 0.8rem 0; }
+  .hero-quote { display: none; }
 }
 
 /* --- Dividers --- */
