@@ -1,3 +1,26 @@
+@media (max-width: 900px) {
+  .hero {
+    padding: 2.5rem 0.5rem 2rem 0.5rem;
+    text-align: center;
+  }
+  .hero .hero-title {
+    font-size: 2rem;
+  }
+  .hero .hero-desc {
+    font-size: 1.1rem;
+  }
+  .hero .hero-btns {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+  }
+  .stats-row {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+}
 @media (max-width: 540px) {
   .carousel-wrap {
     padding: 0.5rem 0;
@@ -20,6 +43,9 @@
   .sc-card {
     min-height: unset;
     height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 0.5rem;
   }
 }
 
@@ -388,6 +414,39 @@ body.inner-page #navbar {
   .nav-links { display: none; }
   .nav-cta   { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-mobile-overlay .btn-primary {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 999px;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    box-shadow: none;
+    transition: var(--transition);
+    text-align: center;
+  }
+  .nav-mobile-overlay .btn-primary:hover {
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(255,255,255,0.55);
+    color: #fff;
+  }
+  .nav-mobile-overlay a:not(.btn-primary) {
+    font-size: 2rem;
+    padding: 0.7rem 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    margin: 0.2rem 0;
+    transition: color 0.3s, background 0.3s;
+  }
+  .nav-mobile-overlay a:not(.btn-primary):hover {
+    color: var(--cream);
+    background: rgba(255,255,255,0.05);
+  }
 }
 
 /* ============================================
