@@ -16,6 +16,31 @@
   }
 }
 @media (max-width: 900px) {
+  #about-snap .stats-row {
+    align-items: center;
+    text-align: center;
+  }
+
+  #about-snap .stat-item {
+    align-items: center;
+  }
+
+  #about-snap .section-title,
+  #about-snap p {
+    text-align: center;
+  }
+
+  #about-snap .divider {
+    margin: var(--space-sm) auto;
+  }
+
+  #about-snap .btn {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+  }
+}
+@media (max-width: 900px) {
   .about-section-title, .about-preview-title, .about-title, .about-header {
     text-align: center !important;
     width: 100%;
