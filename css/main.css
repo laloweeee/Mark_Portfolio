@@ -1,3 +1,14 @@
+@media (max-width: 900px) {
+  #hero {
+    min-height: 120vh;
+  }
+  .hero-bg {
+    min-height: 120vh;
+    height: 120vh;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+}
 /* ==================== MOBILE RESPONSIVE ENHANCEMENTS ==================== */
 @media (max-width: 900px) {
   .sc-grid {
