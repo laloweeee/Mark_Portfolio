@@ -1,3 +1,43 @@
+#work .section-label,
+#work .section-title {
+  text-align: center !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
+}
+#work .flex-between {
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1rem;
+}
+@media (max-width: 900px) {
+  #work .section-label,
+  #work .section-title {
+    text-align: center !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+  }
+  #work .flex-between {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem;
+  }
+}
+@media (max-width: 900px) {
+  .featured-section-title, .portfolio-section-title, .featured-title, .portfolio-title, .featured-header, .portfolio-header {
+    text-align: center !important;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
 @media (max-width: 900px) {
   .about-story-title, .about-title, .about-header {
     text-align: center !important;
@@ -371,7 +411,7 @@ p {
   }
 
   .hero-inner {
-    padding-top: calc(var(--nav-height) + 7rem);
+    padding-top: calc(var(--nav-height) + 5rem);
   }
 }
 
