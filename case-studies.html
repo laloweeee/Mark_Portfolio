@@ -1,4 +1,3 @@
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -193,6 +192,33 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
+
+    .filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-tab {
+  white-space: normal !important;
+  word-break: break-word;
+  padding: 0.6rem 1rem;
+  font-size: 0.78rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+}
+
+    @media (max-width: 768px) {
+  .page-hero {
+    padding: calc(var(--nav-height) + 1.5rem) 0 1.5rem;
+  }
+
+  .page-hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
 
     @media (max-width: 768px) {
       .featured-case-content { padding: 2rem; }

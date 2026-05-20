@@ -346,7 +346,8 @@ p {
 }
 
 .section-label {
-  display: inline-block;
+  display: block;
+  text-align: center;
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 600;
@@ -361,12 +362,13 @@ p {
 .section-label::before,
 .section-label::after {
   content: '';
-  position: absolute;
-  top: 50%;
+  position: static;
+  display: inline-block;
   width: 2rem;
   height: 1px;
   background: rgba(255, 255, 255, 0.18);
-  transform: translateY(-50%);
+  vertical-align: middle;
+  margin: 0 0.5rem;
 }
 .section-label::before { right: 100%; margin-right: -var(--space-xs); right: calc(100% - 0.25rem); }
 .section-label::after  { left: calc(100% - 0.25rem); }
