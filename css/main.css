@@ -411,7 +411,7 @@ p {
   }
 
   .hero-inner {
-    padding-top: calc(var(--nav-height) + 5rem);
+    padding-top: calc(var(--nav-height) + 6rem);
   }
 }
 
