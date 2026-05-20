@@ -12,60 +12,7 @@
   .hero .hero-btns {
     flex-direction: column;
     gap: 1rem;
-    width: 100%;
-    align-items: center;
-  }
-  .stats-row {
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-start;
-  }
-}
-@media (max-width: 540px) {
-  .carousel-wrap {
-    padding: 0.5rem 0;
-  }
-  .carousel-slide {
-    min-width: 100vw;
-    box-sizing: border-box;
-  }
-  .testimonial-card {
-    padding: 1.1rem 0.5rem;
-    font-size: 0.98rem;
-  }
-}
-/* ==================== MOBILE RESPONSIVE ENHANCEMENTS ==================== */
-@media (max-width: 900px) {
-  .sc-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-  .sc-card {
-    min-height: unset;
-    height: auto;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 1rem 0.5rem;
-  }
-}
 
-@media (max-width: 540px) {
-  .service-card {
-    padding: 1.1rem 0.5rem;
-  }
-}
-/* Case Studies Filter Tabs — Match Let's Talk Button */
-/* Filter-tab button: only change to white bg and black font on hover/active/focus, keep previous size and style */
-.filter-tab.btn {
-  border-radius: var(--radius-full);
-  transition: var(--transition);
-}
-.filter-tab.btn:hover,
-.filter-tab.btn:focus,
-.filter-tab.btn.active {
-  background: #fff;
-  color: #000;
-}
 /* ============================================================
    FILE: css/components.css
    Navbar, Footer, Custom Cursor, Cards, Carousel, Tour Guide
@@ -1162,9 +1109,7 @@ footer {
   .process-steps::before { display: none; }
 }
 
-@media (max-width: 540px) {
-  .process-steps { grid-template-columns: 1fr; }
-}
+
 
 .process-step {
   text-align: center;
