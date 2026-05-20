@@ -409,10 +409,6 @@ p {
   #hero {
     align-items: flex-start;
   }
-
-  .hero-inner {
-    padding-top: calc(var(--nav-height) + 3rem);
-  }
 }
 
 .section-header {
