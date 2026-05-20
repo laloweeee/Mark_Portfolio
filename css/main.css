@@ -817,7 +817,6 @@ p {
   .sc-card-img-wrap {
     min-height: 160px;
     height: auto;
-    aspect-ratio: 4/3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -826,11 +825,9 @@ p {
   .sc-card-img-wrap img {
     width: 100%;
     height: auto;
-    max-height: 100%;
     object-fit: contain;
-    aspect-ratio: 4/3;
     display: block;
-      margin: auto;
+    margin: auto;
   }
 }
 
