@@ -830,6 +830,7 @@ p {
     object-fit: contain;
     aspect-ratio: 4/3;
     display: block;
+      margin: auto;
   }
 }
 
